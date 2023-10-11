@@ -2,6 +2,7 @@ import sys
 import re
 import markdown
 import latex2mathml.converter
+from markdown.extensions.tables import TableExtension
 file = sys.argv[1]
 f=open(file)
 input = "".join(f.readlines())
@@ -17,7 +18,7 @@ for i,s in enumerate(ls):
 
 
 
-html = markdown.markdown(sm, extensions=['md_in_html'])
+html = markdown.markdown(sm, extensions=[TableExtension(use_align_attribute=True)])
 
 
 print("""
